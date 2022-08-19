@@ -1,0 +1,18 @@
+import React from "react";
+import { render } from "react-dom";
+import "normalize.css";
+import App from "./App";
+import { GlobalStyles } from "./global-styles";
+import { BrowserRouter } from "react-router-dom";
+import { firebase } from "./lib/firebase.prod";
+import { FirebaseContext } from "./context/firebase";
+
+render(
+  <FirebaseContext.Provider value={{ firebase }}>
+    <BrowserRouter>
+      <GlobalStyles />
+      <App />
+    </BrowserRouter>
+  </FirebaseContext.Provider>,
+  document.getElementById("root")
+);
